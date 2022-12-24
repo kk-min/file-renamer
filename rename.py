@@ -14,6 +14,11 @@ if(argc < 3 or argc > 4):
 
 # Directory: 
 dir = Path(argv[1])
+
+if(not dir.is_dir()):
+    print("Path is not a directory")
+    quit()
+
 if(argc == 3):
     # Remove string
     replacement = ""
@@ -21,7 +26,12 @@ else:
     # Replace string
     replacement = argv[3]
 
+print("----------")
+print('Files renamed in '+str(dir)+':\n')
 for filepath in dir.glob('*'+argv[2]+'*'):
+    old_name = filepath.name
     renamed_filepath = str(filepath).replace(argv[2], replacement)
     filepath.rename(renamed_filepath)
-    print(str(filepath)+' -> '+renamed_filepath)
+    new_name = Path(renamed_filepath).name
+    print(old_name+' -> '+new_name+'\n')
+print("----------")
