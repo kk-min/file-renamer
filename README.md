@@ -1,6 +1,6 @@
 # File Renamer
 Copyright © 2022 Min Kabar Kyaw  
-Simple python script to rename files in a directory.
+Simple python script to batch rename files in a directory.
 
 ## Usage
 ```python
