@@ -30,8 +30,8 @@ print("----------")
 print('Files renamed in '+str(dir)+':\n')
 for filepath in dir.glob('*'+argv[2]+'*'):
     old_name = filepath.name
-    renamed_filepath = str(filepath).replace(argv[2], replacement)
+    new_name = old_name.replace(argv[2], replacement)
+    renamed_filepath = str(filepath.parent)+'/'+new_name
     filepath.rename(renamed_filepath)
-    new_name = Path(renamed_filepath).name
     print(old_name+' -> '+new_name+'\n')
 print("----------")
